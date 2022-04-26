@@ -25,3 +25,13 @@ export interface ProductState {
   products: Array<Product>;
   error: string;
 }
+
+export interface ReviewState {
+  id: string;
+  reviews: Review[];
+}
+
+export interface Review {
+  id: string;
+  content: string;
+}

@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
 import { ProductState } from "../types";
 
 const BASE_URL = "https://fakestoreapi.com/products";
@@ -14,8 +13,8 @@ export const getProducts = createAsyncThunk(
   "product/getProducts",
   async (obj, thunkAPI) => {
     try {
-      const res = await axios(BASE_URL);
-      return res.data;
+      const res = await fetch(BASE_URL);
+      return res.json();
     } catch (err) {
       return "Unable to fetch data right now";
     }

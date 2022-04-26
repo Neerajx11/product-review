@@ -1,26 +1,17 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { v4 } from "uuid";
 import { useAppSelector } from "../store";
+import Loader from "./Loader";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
   const { isLoading, products } = useAppSelector((state) => state.product);
 
   if (isLoading) {
-    return (
-      <Text
-        fontSize="30px"
-        textAlign="center"
-        fontWeight="600"
-        mt="40px"
-        color="disecto.secondary"
-      >
-        Loading...
-      </Text>
-    );
+    return <Loader />;
   }
 
-  const productList = products.map((el) => (
+  const productList = products?.map((el) => (
     <ProductCard key={v4()} data={el} />
   ));
   return (

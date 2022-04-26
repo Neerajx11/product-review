@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
+import Footer from "../src/components/Footer";
 import Hero from "../src/components/Hero";
 import Navbar from "../src/components/Navbar";
 import Products from "../src/components/Products";
@@ -9,6 +10,7 @@ import { useAppDispatch } from "../src/store";
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch();
+  //fetch initally for searchBar and product section
 
   useEffect(() => {
     dispatch(getProducts());
@@ -24,6 +26,7 @@ const Home: NextPage = () => {
       <Navbar isSearchBar={true} />
       <Hero />
       <Products />
+      <Footer />
     </>
   );
 };

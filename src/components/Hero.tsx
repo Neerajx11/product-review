@@ -24,14 +24,7 @@ const Hero = () => {
         overflow="hidden"
         bg="disecto.primary"
       >
-        <Image
-          src={bg}
-          layout="fill"
-          alt="background"
-          width="100%"
-          height="100%"
-          objectFit="cover"
-        />
+        <Image src={bg} layout="fill" alt="background" objectFit="cover" />
       </Box>
       <Box
         fontSize={{ base: "35px", lg: "45px" }}
