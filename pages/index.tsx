@@ -1,11 +1,11 @@
-import { Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
+import Hero from "../src/components/Hero";
 import Navbar from "../src/components/Navbar";
+import Products from "../src/components/Products";
 import { getProducts } from "../src/features/productSlice";
 import { useAppDispatch } from "../src/store";
-import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +22,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar isSearchBar={true} />
+      <Hero />
+      <Products />
     </>
   );
 };

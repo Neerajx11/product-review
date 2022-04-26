@@ -1,16 +1,17 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { v4 } from "uuid";
 
 import { useAppSelector } from "../store";
-
-import { Box, Input } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { checkName } from "../utils/searchRegex";
 import { Product } from "../types";
 
+import { v4 } from "uuid";
+
+import { Box, Input } from "@chakra-ui/react";
+
 const SearchBar = () => {
   const { isLoading, products } = useAppSelector((state) => state.product);
-  const [filtItem, setFiltItem] = useState<Array<Product>>([]);
+  const [filtItem, setFiltItem] = useState<Product[]>([]);
   const [inp, setInp] = useState("");
 
   useEffect(() => {
