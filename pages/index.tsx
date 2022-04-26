@@ -1,21 +1,29 @@
-import { Button, useColorMode } from '@chakra-ui/react'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Box } from "@chakra-ui/react";
+import type { NextPage } from "next";
+import Head from "next/head";
+import { useEffect } from "react";
+import Navbar from "../src/components/Navbar";
+import { getProducts } from "../src/features/productSlice";
+import { useAppDispatch } from "../src/store";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const{toggleColorMode} =useColorMode();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Product Review</title>
         <meta name="description" content="Disecto fontend internship task" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Hello World!</h1>
-      <Button onClick={toggleColorMode} variant="solid" color={"white"} bg={["disecto.red", "purple.700"]}>Toggle Color Mode</Button>
-    </div>
-  )
-}
+      <Navbar isSearchBar={true} />
+    </>
+  );
+};
 
-export default Home
+export default Home;

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-const reducer = ()=>12;
+import productReducer from "./features/productSlice"
 
 const store = configureStore({
   reducer: {
-    one: reducer,
+    product: productReducer,
   },
 })
 

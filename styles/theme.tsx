@@ -5,13 +5,14 @@ import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
 // 2. Add your color mode config
 const config: ThemeConfig = {
-  initialColorMode: 'system',
+  initialColorMode: 'light',
   useSystemColorMode: false,
 }
 
 const colors = {
   disecto:{
-    "red":"#00FF00",
+    "primary":"#39C0BA",
+    "secondadry":"#3EB2AD"
   }
 }
 
