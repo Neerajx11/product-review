@@ -1,7 +1,4 @@
-import {
-  clearLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageManger";
+import { saveToLocalStorage } from "../utils/localStorageManger";
 
 export const localStorageMiddleware = (store) => (next) => (action) => {
   if (action.type === "review/add") {

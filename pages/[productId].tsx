@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, Textarea } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -10,10 +10,6 @@ import { getProducts } from "../src/features/productSlice";
 import { addReview } from "../src/features/reviewSlice";
 import { useAppDispatch, useAppSelector } from "../src/store";
 
-const review = [
-  { id: "asdfasd", descrption: "asdfashdfu" },
-  { id: "asdf", descrption: "werwe" },
-];
 const ProductName = () => {
   const router = useRouter();
   const { productId } = router.query;
@@ -42,6 +38,25 @@ const ProductName = () => {
     const payload = { id: data.id, review: { id, content: inp } };
     dispatch(addReview(payload));
   };
+
+  const review = useAppSelector((state) => state.review);
+  const reviewData = review?.filter((el) => el.id.toString() === productId);
+  console.log(reviewData);
+  let reviewList =
+    reviewData?.length > 0
+      ? reviewData[0].reviews.map((el, idx) => (
+          <Box
+            bg={idx % 2 == 0 ? "disecto.primary" : "disecto.secondary"}
+            color="white"
+            p="10px"
+            borderRadius="8px"
+            mb="10px"
+            key={el.id}
+          >
+            {el.content}
+          </Box>
+        ))
+      : "";
 
   if (isLoading && products.length === 0) return <Loader />;
 
@@ -128,32 +143,7 @@ const ProductName = () => {
           >
             Reviews
           </Text>
-          <Box>
-            <Box
-              bg="disecto.primary"
-              color="white"
-              p="10px"
-              borderRadius="8px"
-              mb="10px"
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque et
-              exercitationem nemo unde, soluta veritatis, deserunt sequi libero
-              culpa nisi iure laudantium perferendis incidunt debitis saepe
-              ducimus, laboriosam quo nihil.
-            </Box>
-            <Box
-              bg="disecto.secondary"
-              color="white"
-              p="10px"
-              borderRadius="8px"
-              mb="10px"
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque et
-              exercitationem nemo unde, soluta veritatis, deserunt sequi libero
-              culpa nisi iure laudantium perferendis incidunt debitis saepe
-              ducimus, laboriosam quo nihil.
-            </Box>
-          </Box>
+          <Box>{reviewList}</Box>
         </Box>
       </Box>
     </>

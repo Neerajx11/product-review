@@ -9,17 +9,14 @@ const initialState: ProductState = {
   error: "",
 };
 
-export const getProducts = createAsyncThunk(
-  "product/getProducts",
-  async (obj, thunkAPI) => {
-    try {
-      const res = await fetch(BASE_URL);
-      return res.json();
-    } catch (err) {
-      return "Unable to fetch data right now";
-    }
+export const getProducts = createAsyncThunk("product/getProducts", async () => {
+  try {
+    const res = await fetch(BASE_URL);
+    return res.json();
+  } catch (err) {
+    return "Unable to fetch data right now";
   }
-);
+});
 
 const productSlice = createSlice({
   name: "product",
