@@ -26,7 +26,7 @@ const ProductCard = ({ data }: { data: Product }) => {
               <Image
                 src={data.image}
                 width="150px"
-                height="200px"
+                height="170px"
                 alt={data.title}
               />
             </Box>
@@ -37,7 +37,7 @@ const ProductCard = ({ data }: { data: Product }) => {
             p="5px"
             color="white"
             borderRadius="4px"
-            minH="150px"
+            minH="152px"
           >
             <Box>
               <Text fontSize="14px" fontWeight="600" mt="5px" mb="10px">
