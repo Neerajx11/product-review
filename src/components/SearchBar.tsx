@@ -42,6 +42,7 @@ const SearchBar = () => {
           borderBottom="1px solid lightgray"
           cursor="pointer"
           _hover={{ bg: "disecto.primary", color: "white" }}
+          bg="white"
         >
           {el.title.length > 50 ? el.title.slice(0, 60) + "..." : el.title}
         </Box>
@@ -50,7 +51,7 @@ const SearchBar = () => {
   ));
 
   return (
-    <Box w={{ base: "100%", md: "85%", lg: "65%" }}>
+    <Box w={{ base: "100%", md: "85%", lg: "65%" }} position="relative">
       <Box>
         <Input
           mt={{ base: "20px", md: "10px", lg: "0px" }}
@@ -61,13 +62,13 @@ const SearchBar = () => {
           mx="auto"
           value={inp}
           onChange={(e) => setInp(e.target.value)}
-          position="relative"
         />
         <Box
           position="absolute"
           boxShadow="lg"
           width="100%"
           borderX="1px solid lightgray"
+          zIndex="2"
         >
           {!isLoading && navListItem}
         </Box>
