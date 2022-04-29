@@ -34,6 +34,7 @@ const ProductCard = ({ data }: { data: Product }) => {
                   width="150px"
                   height="170px"
                   alt={data.title}
+                  objectFit="contain"
                 />
               </Box>
             </Box>

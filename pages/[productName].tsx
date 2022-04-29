@@ -71,6 +71,7 @@ const ProductName = () => {
                 width="220px"
                 height="250px"
                 alt={data.title}
+                objectFit="contain"
               />
             </Box>
             <Box p="20px 40px" w={{ md: "60%" }}>
