@@ -1,12 +1,16 @@
-import { Box, Button, Flex, Text, Textarea } from "@chakra-ui/react";
-import Head from "next/head";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Image from "next/image";
+
+import { Box, Button, Flex, Text, Textarea } from "@chakra-ui/react";
+
 import { v4 } from "uuid";
+
 import Loader from "../src/components/Loader";
 import Navbar from "../src/components/Navbar";
 import Review from "../src/components/Review";
+
 import { getProducts } from "../src/features/productSlice";
 import { addReview } from "../src/features/reviewSlice";
 import { useAppDispatch, useAppSelector } from "../src/store";
@@ -46,7 +50,7 @@ const ProductName = () => {
   return (
     <>
       <Head>
-        <title>Some Title</title>
+        <title>{filterData.length ? data.title : "Product page"}</title>
         <meta name="description" content="Something about the product" />
       </Head>
       <Navbar isSearchBar={false} />

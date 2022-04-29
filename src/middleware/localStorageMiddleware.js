@@ -3,7 +3,6 @@ import { saveToLocalStorage } from "../utils/localStorageManger";
 export const localStorageMiddleware = (store) => (next) => (action) => {
   if (action.type === "review/add") {
     const arrToStore = store.getState().review;
-    console.log(arrToStore);
     let reviewIdx = arrToStore.findIndex((el) => el.id === action.payload.id);
     if (reviewIdx === -1) {
       const finalPayload = {
