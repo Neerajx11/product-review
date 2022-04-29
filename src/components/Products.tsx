@@ -28,10 +28,10 @@ const Products = () => {
       <Flex flexWrap="wrap" justifyContent="space-evenly">
         {productList}
         {/* dummy for good alignment :) */}
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
+        <Box width="20%" minW="270px" m="40px 20px"></Box>
+        <Box width="20%" minW="270px" m="40px 20px"></Box>
+        <Box width="20%" minW="270px" m="40px 20px"></Box>
+        <Box width="20%" minW="270px" m="40px 20px"></Box>
       </Flex>
     </Box>
   );
