@@ -8,6 +8,7 @@ const Loader = () => {
       fontWeight="600"
       mt="40px"
       color="disecto.secondary"
+      minH="100vh"
     >
       Loading...
     </Text>
