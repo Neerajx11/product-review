@@ -33,7 +33,7 @@ const SearchBar = () => {
   }, [inp, products]);
 
   const navListItem = filtItem.map((el) => (
-    <Link href={`/${el.id}`} key={v4()}>
+    <Link href={`/${el.title.toLowerCase()}`} key={v4()}>
       <a>
         <Box
           height="auto"
