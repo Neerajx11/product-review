@@ -8,6 +8,7 @@ import { Product } from "../types";
 import { v4 } from "uuid";
 
 import { Box, Input } from "@chakra-ui/react";
+import { removeUnsafeKeyword } from "../utils/removeUnsafeKeyword";
 
 const SearchBar = () => {
   const { isLoading, products } = useAppSelector((state) => state.product);
@@ -33,7 +34,7 @@ const SearchBar = () => {
   }, [inp, products]);
 
   const navListItem = filtItem.map((el) => (
-    <Link href={`/${el.title.toLowerCase()}`} key={v4()}>
+    <Link href={`/${removeUnsafeKeyword(el.title)}`} key={v4()}>
       <a>
         <Box
           height="auto"

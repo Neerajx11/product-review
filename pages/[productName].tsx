@@ -14,6 +14,7 @@ import Review from "../src/components/Review";
 import { getProducts } from "../src/features/productSlice";
 import { addReview } from "../src/features/reviewSlice";
 import { useAppDispatch, useAppSelector } from "../src/store";
+import { removeUnsafeKeyword } from "../src/utils/removeUnsafeKeyword";
 
 const ProductName = () => {
   const router = useRouter();
@@ -27,7 +28,7 @@ const ProductName = () => {
   }, [dispatch]);
 
   const filterData = products?.filter(
-    (el) => el.title.toLowerCase() === productName
+    (el) => removeUnsafeKeyword(el.title) === productName
   );
   const data = filterData[0];
 

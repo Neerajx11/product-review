@@ -2,11 +2,12 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "../types";
+import { removeUnsafeKeyword } from "../utils/removeUnsafeKeyword";
 
 const ProductCard = ({ data }: { data: Product }) => {
   return (
     <Box width="20%" minW="270px" height="500px" m="40px 20px" boxShadow="2xl">
-      <Link href={`/${data.title.toLowerCase()}`}>
+      <Link href={`/${removeUnsafeKeyword(data.title)}`}>
         <a>
           <Flex
             flexDirection="column"
