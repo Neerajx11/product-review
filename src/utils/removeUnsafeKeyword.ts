@@ -1,4 +1,6 @@
 export const removeUnsafeKeyword = (str: string) => {
-  str.replace("/", "");
-  return str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  return str
+    .replace(/[^a-zA-Z0-9 ]/g, "")
+    .trim()
+    .toLowerCase();
 };

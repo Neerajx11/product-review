@@ -40,7 +40,7 @@ const Hero = () => {
         color="white"
         mb="40px"
       >
-        Review product and make them better.
+        Review products and make them better.
       </Box>
       <Box>
         <Button

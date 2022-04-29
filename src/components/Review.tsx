@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useAppSelector } from "../store";
 
 const Review = ({ id }: { id: string }) => {
@@ -11,7 +11,7 @@ const Review = ({ id }: { id: string }) => {
           <Box
             bg={idx % 2 === 0 ? "disecto.primary" : "disecto.secondary"}
             color="white"
-            p="10px"
+            p="20px"
             borderRadius="8px"
             mb="10px"
             key={el.id}
@@ -21,7 +21,25 @@ const Review = ({ id }: { id: string }) => {
         ))
       : "";
 
-  return <Box>{reviewList}</Box>;
+  return (
+    <Box>
+      {reviewList ? (
+        reviewList
+      ) : (
+        <Text
+          textAlign="center"
+          fontWeight="500"
+          fontSize="16px"
+          color="disecto.secondary"
+          borderRadius="4px"
+          p="10px"
+          mb="20px"
+        >
+          Nothing to show here...
+        </Text>
+      )}
+    </Box>
+  );
 };
 
 export default Review;
