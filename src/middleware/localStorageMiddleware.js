@@ -10,23 +10,18 @@ export const localStorageMiddleware = (store) => (next) => (action) => {
         id: action.payload.id,
         reviews: [action.payload.review],
       };
-      saveToLocalStorage(
-        "review",
-        JSON.stringify([...arrToStore, finalPayload])
-      );
+      saveToLocalStorage("review", [...arrToStore, finalPayload]);
     } else {
       let reviewToUpdate = arrToStore[reviewIdx];
-      reviewToUpdate = {
+      let newData = {
         ...reviewToUpdate,
         reviews: [action.payload.review, ...reviewToUpdate.reviews],
       };
-      const arr = arrToStore.filter((el) =>
-        el.id === action.payload.id ? reviewToUpdate : el
+      let arr = arrToStore.map((el) =>
+        el.id === action.payload.id ? newData : el
       );
       saveToLocalStorage("review", arr);
     }
   }
   return next(action);
 };
-
-let arr = { id: 19, reviews: [{ id: "asdfasd", content: "asdfasdfas" }] };

@@ -6,13 +6,14 @@ import React, { useEffect, useState } from "react";
 import { v4 } from "uuid";
 import Loader from "../src/components/Loader";
 import Navbar from "../src/components/Navbar";
+import Review from "../src/components/Review";
 import { getProducts } from "../src/features/productSlice";
 import { addReview } from "../src/features/reviewSlice";
 import { useAppDispatch, useAppSelector } from "../src/store";
 
 const ProductName = () => {
   const router = useRouter();
-  const { productId } = router.query;
+  const { productId }: any = router.query;
 
   const dispatch = useAppDispatch();
   const { products, isLoading } = useAppSelector((state) => state.product);
@@ -37,26 +38,8 @@ const ProductName = () => {
     const id = v4();
     const payload = { id: data.id, review: { id, content: inp } };
     dispatch(addReview(payload));
+    setInp("");
   };
-
-  const review = useAppSelector((state) => state.review);
-  const reviewData = review?.filter((el) => el.id.toString() === productId);
-  console.log(reviewData);
-  let reviewList =
-    reviewData?.length > 0
-      ? reviewData[0].reviews.map((el, idx) => (
-          <Box
-            bg={idx % 2 == 0 ? "disecto.primary" : "disecto.secondary"}
-            color="white"
-            p="10px"
-            borderRadius="8px"
-            mb="10px"
-            key={el.id}
-          >
-            {el.content}
-          </Box>
-        ))
-      : "";
 
   if (isLoading && products.length === 0) return <Loader />;
 
@@ -143,7 +126,7 @@ const ProductName = () => {
           >
             Reviews
           </Text>
-          <Box>{reviewList}</Box>
+          <Review id={productId} />
         </Box>
       </Box>
     </>

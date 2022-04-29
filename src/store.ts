@@ -6,7 +6,7 @@ import reviewReducer from "./features/reviewSlice";
 import { localStorageMiddleware } from "./middleware/localStorageMiddleware";
 import { getFromLocalStorage } from "./utils/localStorageManger";
 
-const reviewLocalState = getFromLocalStorage("review") || null;
+const reviewLocalState = getFromLocalStorage("review") || [];
 
 const store = configureStore({
   reducer: {

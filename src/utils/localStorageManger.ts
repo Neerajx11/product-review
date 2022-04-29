@@ -9,8 +9,8 @@ const saveToLocalStorage = (str: string, data: any) => {
 
 const getFromLocalStorage = (str: string) => {
   try {
-    const data = JSON.parse(localStorage.getItem(str) || "");
-    return data;
+    const data = localStorage.getItem(str) || "";
+    return JSON.parse(data);
   } catch (err) {
     console.log("Your data cant be fetched");
     return null;
