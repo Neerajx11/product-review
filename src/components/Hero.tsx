@@ -29,7 +29,7 @@ const Hero = () => {
           layout="fill"
           alt="background"
           objectFit="cover"
-          priority
+          priority={false}
         />
       </Box>
       <Box

@@ -54,7 +54,7 @@ const ProductName = () => {
         <meta name="description" content="Something about the product" />
       </Head>
       <Navbar isSearchBar={false} />
-      <Box mt="40px">
+      <Box mt={{ base: "40px", md: "90px" }}>
         {/* productDetail */}
         {filterData.length && (
           <Flex
@@ -72,22 +72,23 @@ const ProductName = () => {
             </Box>
             <Box p="20px 40px" w={{ md: "60%" }}>
               <Text
-                fontSize={{ base: "18px", md: "22px" }}
+                fontSize={{ base: "18px", md: "28px" }}
                 color="disecto.secondary"
                 fontWeight="600"
                 mb="30px"
               >
                 {data.title}
               </Text>
-              <Text fontSize="16px" mb="30px">
-                {data.description}
-              </Text>
               <Text
-                fontSize={{ base: "18px", md: "20px" }}
+                fontSize={{ base: "18px", md: "25px" }}
                 color="disecto.primary"
                 fontWeight="600"
+                mb="30px"
               >
                 ${data.price}
+              </Text>
+              <Text fontSize="16px" mb="30px">
+                {data.description}
               </Text>
             </Box>
           </Flex>

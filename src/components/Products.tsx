@@ -21,7 +21,7 @@ const Products = () => {
         fontSize="40px"
         textAlign="center"
         fontWeight="600"
-        m="40px auto 20px"
+        m="60px auto 40px"
       >
         Our Products
       </Text>
