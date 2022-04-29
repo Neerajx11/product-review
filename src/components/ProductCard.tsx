@@ -6,7 +6,7 @@ import { Product } from "../types";
 const ProductCard = ({ data }: { data: Product }) => {
   return (
     <Box width="20%" minW="270px" height="500px" m="40px 20px" boxShadow="2xl">
-      <Link href={`/${data.id}`}>
+      <Link href={`/${data.title.toLowerCase()}`}>
         <a>
           <Flex
             flexDirection="column"

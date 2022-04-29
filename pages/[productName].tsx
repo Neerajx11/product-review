@@ -17,7 +17,7 @@ import { useAppDispatch, useAppSelector } from "../src/store";
 
 const ProductName = () => {
   const router = useRouter();
-  const { productId }: any = router.query;
+  const { productName }: any = router.query;
 
   const dispatch = useAppDispatch();
   const { products, isLoading } = useAppSelector((state) => state.product);
@@ -26,7 +26,9 @@ const ProductName = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  const filterData = products?.filter((el) => el.id.toString() === productId);
+  const filterData = products?.filter(
+    (el) => el.title.toLowerCase() === productName
+  );
   const data = filterData[0];
 
   const [inp, setInp] = useState("");
@@ -131,7 +133,7 @@ const ProductName = () => {
           >
             Reviews
           </Text>
-          <Review id={productId} />
+          {data && <Review id={data.id.toString()} />}
         </Box>
       </Box>
     </>
