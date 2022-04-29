@@ -21,7 +21,7 @@ const reviewSlice = createSlice({
         state.push(finalPayload);
       } else {
         let reviewToUpdate = state[reviewIdx];
-        reviewToUpdate.reviews.push(action.payload.review);
+        reviewToUpdate.reviews.unshift(action.payload.review);
         state.filter((el) =>
           el.id === action.payload.id ? reviewToUpdate : el
         );
